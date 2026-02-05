@@ -1,59 +1,908 @@
-﻿<!DOCTYPE html>
+﻿<!doctype html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Linktree Ejemplo</title>
-    <style>
-        body {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: linear-gradient(to bottom,#EC9F01, #E95B71 );
-        }
-
-        img {
-            width: 250px;
-            height: auto;
-            margin-bottom: 5px;
-
-        }
-
-        .button-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .link-button {
-            display: block;
-            width: 200px;
-            margin: 10px 0;
-            padding: 15px;
-            text-align: center;
-            text-decoration: none;
-            color: white;
-            background-color: #007bff;
-            border-radius: 25px;
-            font-size: 16px;
-        }
-
-            .link-button:hover {
-                background-color: #0056b3;
-            }
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Alan Ledesma | Modelador 3D</title>
+  <meta name="description" content="Portfolio de modelado 3D. Personajes, props, ambientes y modelos para impresion. Agenda una videollamada para ultimar detalles." />
+  <style>
+    :root{
+      --bg:#0b0e14;
+      --panel:#111726;
+      --panel2:#0f1422;
+      --text:#eef2ff;
+      --muted:#aab4cc;
+      --brand:#7c5cff;
+      --brand2:#22d3ee;
+      --ok:#35d07f;
+      --warn:#ffcc66;
+      --border:rgba(255,255,255,.10);
+      --shadow:0 18px 40px rgba(0,0,0,.38);
+      --r1:16px;
+      --r2:26px;
+      --max:1120px;
+      --pad:clamp(16px, 3vw, 28px);
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      --sans: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Arial, "Apple Color Emoji","Segoe UI Emoji";
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:var(--sans);
+      color:var(--text);
+      background:
+        radial-gradient(1000px 520px at 15% -10%, rgba(124,92,255,.35), transparent 55%),
+        radial-gradient(900px 520px at 90% 0%, rgba(34,211,238,.22), transparent 55%),
+        radial-gradient(900px 520px at 40% 120%, rgba(53,208,127,.10), transparent 50%),
+        var(--bg);
+      line-height:1.45;
+    }
+    a{color:inherit; text-decoration:none}
+    img{max-width:100%; display:block}
+    .container{max-width:var(--max); margin:0 auto; padding:0 var(--pad);}
+    /* Nav */
+    .nav{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(12px);
+      background: linear-gradient(to bottom, rgba(11,14,20,.88), rgba(11,14,20,.62));
+      border-bottom:1px solid var(--border);
+    }
+    .nav-inner{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:14px var(--pad);
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px; font-weight:800; letter-spacing:.3px;
+      user-select:none;
+    }
+    .mark{
+      width:34px; height:34px; border-radius:12px;
+      background: linear-gradient(135deg, var(--brand), var(--brand2));
+      box-shadow: 0 10px 24px rgba(124,92,255,.24);
+    }
+    .nav-links{display:flex; gap:10px; flex-wrap:wrap; justify-content:flex-end; align-items:center;}
+    .chip{
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.04);
+      color:var(--muted);
+      font-size:14px;
+      transition: transform .15s ease, border-color .15s ease, background .15s ease, color .15s ease;
+      white-space:nowrap;
+    }
+    .chip:hover{transform:translateY(-1px); border-color:rgba(124,92,255,.45); background:rgba(124,92,255,.10); color:var(--text);}
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:10px 14px;
+      border-radius:999px;
+      font-weight:750;
+      border:1px solid rgba(124,92,255,.55);
+      background: linear-gradient(135deg, rgba(124,92,255,.26), rgba(34,211,238,.10));
+      box-shadow: 0 12px 26px rgba(0,0,0,.25);
+      transition: transform .15s ease, filter .15s ease;
+      cursor:pointer;
+      white-space:nowrap;
+    }
+    .btn:hover{transform:translateY(-1px); filter:brightness(1.06);}
+    .btn.secondary{
+      border-color:var(--border);
+      background: rgba(255,255,255,.06);
+      box-shadow:none;
+      color:var(--text);
+    }
+    /* Layout */
+    section{padding: 26px 0;}
+    .card{
+      border:1px solid var(--border);
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      border-radius: var(--r2);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .card-inner{padding:22px;}
+    .hero{padding: 42px 0 10px;}
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap:16px;
+      align-items:stretch;
+    }
+    @media (max-width: 920px){ .hero-grid{grid-template-columns:1fr;} }
+    .kicker{
+      display:inline-flex; align-items:center; gap:10px;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid rgba(34,211,238,.22);
+      background: rgba(34,211,238,.08);
+      color:var(--muted);
+      font-size:13px;
+    }
+    .kdot{
+      width:8px; height:8px; border-radius:999px;
+      background:var(--brand2);
+      box-shadow:0 0 0 6px rgba(34,211,238,.12);
+    }
+    h1{
+      margin:14px 0 8px;
+      font-size: clamp(30px, 4.2vw, 52px);
+      line-height:1.05;
+      letter-spacing:-.8px;
+    }
+    .sub{color:var(--muted); font-size: clamp(14px, 1.4vw, 16px); margin:0;}
+    .meta-row{display:flex; gap:10px; flex-wrap:wrap; margin-top:16px;}
+    .pill{
+      display:inline-flex; gap:10px; align-items:center;
+      padding:8px 12px;
+      border-radius:999px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.04);
+      color:var(--muted);
+      font-size:13px;
+    }
+    .dot{width:8px;height:8px;border-radius:999px;background:var(--ok); box-shadow:0 0 0 6px rgba(53,208,127,.10);}
+    .dot.warn{background:var(--warn); box-shadow:0 0 0 6px rgba(255,204,102,.12);}
+    .actions{display:flex; gap:10px; flex-wrap:wrap; margin-top:18px;}
+    .hr{height:1px; background:var(--border); margin:18px 0;}
+    .grid2{display:grid; grid-template-columns:1fr 1fr; gap:10px;}
+    @media (max-width:540px){ .grid2{grid-template-columns:1fr;} }
+    .input, select, textarea{
+      width:100%;
+      background: rgba(255,255,255,.05);
+      border:1px solid var(--border);
+      color: var(--text);
+      border-radius: 14px;
+      padding: 11px 12px;
+      outline:none;
+      font-size:14px;
+    }
+    textarea{min-height:110px; resize:vertical;}
+    .small{color:var(--muted); font-size:12px;}
+    .success{
+      display:none;
+      margin-top:10px;
+      border:1px solid rgba(53,208,127,.28);
+      background: rgba(53,208,127,.10);
+      border-radius:14px;
+      padding:10px 12px;
+      font-size:13px;
+    }
+    /* Section headings */
+    .section-title{
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap:14px;
+      margin: 8px 0 14px;
+      flex-wrap:wrap;
+    }
+    .section-title h2{margin:0; font-size:22px;}
+    .section-title p{margin:0; color:var(--muted); font-size:14px;}
+    /* Services */
+    .cards{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:12px;
+    }
+    @media (max-width: 920px){ .cards{grid-template-columns:1fr 1fr;} }
+    @media (max-width: 540px){ .cards{grid-template-columns:1fr;} }
+    .mini-card{
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.04);
+      border-radius: var(--r1);
+      padding:16px;
+      transition: transform .15s ease, border-color .15s ease;
+    }
+    .mini-card:hover{transform:translateY(-2px); border-color:rgba(124,92,255,.40);}
+    .mini-card b{display:block; margin-bottom:6px;}
+    .mini-card span{display:block; color:var(--muted); font-size:13px;}
+    .badge{
+      display:inline-flex; align-items:center; gap:8px;
+      font-family:var(--mono);
+      font-size:12px;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid rgba(124,92,255,.34);
+      background: rgba(124,92,255,.10);
+      color: rgba(238,242,255,.92);
+      margin-top:10px;
+    }
+    /* Process */
+    .steps{
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap:12px;
+    }
+    @media (max-width: 920px){ .steps{grid-template-columns:1fr 1fr;} }
+    @media (max-width: 540px){ .steps{grid-template-columns:1fr;} }
+    .step{
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.04);
+      border-radius: var(--r1);
+      padding:16px;
+    }
+    .step .num{
+      width:28px; height:28px; border-radius:10px;
+      display:inline-flex; align-items:center; justify-content:center;
+      font-family:var(--mono);
+      background: rgba(34,211,238,.10);
+      border:1px solid rgba(34,211,238,.22);
+      color: rgba(238,242,255,.92);
+      margin-bottom:10px;
+    }
+    .step b{display:block; margin-bottom:6px;}
+    .step span{color:var(--muted); font-size:13px;}
+    /* Testimonials */
+    .quotes{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:12px;
+    }
+    @media (max-width: 920px){ .quotes{grid-template-columns:1fr;} }
+    .quote{
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.04);
+      border-radius: var(--r1);
+      padding:16px;
+    }
+    .stars{color: rgba(255,204,102,.95); font-family:var(--mono); letter-spacing:.4px;}
+    .quote p{margin:10px 0 10px; color:rgba(238,242,255,.92);}
+    .quote .who{color:var(--muted); font-size:13px;}
+    /* Portfolio */
+    .tabs{display:flex; gap:10px; flex-wrap:wrap;}
+    .tab{
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.04);
+      color:var(--muted);
+      padding:8px 12px;
+      border-radius:999px;
+      cursor:pointer;
+      font-size:13px;
+      user-select:none;
+      transition: border-color .15s ease, background .15s ease, color .15s ease;
+    }
+    .tab.active{
+      border-color: rgba(124,92,255,.45);
+      background: rgba(124,92,255,.12);
+      color: var(--text);
+    }
+    .portfolio{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap:12px;
+    }
+    .work{
+      grid-column: span 4;
+      border-radius: var(--r1);
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.04);
+      overflow:hidden;
+      transition: transform .15s ease, border-color .15s ease;
+    }
+    .work:hover{transform:translateY(-2px); border-color: rgba(34,211,238,.35);}
+    @media (max-width: 920px){ .work{grid-column: span 6;} }
+    @media (max-width: 540px){ .work{grid-column: span 12;} }
+    .thumb{
+      height: 190px;
+      background:
+        radial-gradient(420px 240px at 30% 20%, rgba(124,92,255,.30), transparent 55%),
+        radial-gradient(350px 240px at 70% 10%, rgba(34,211,238,.20), transparent 55%),
+        linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.02));
+      border-bottom:1px solid var(--border);
+      display:flex; align-items:center; justify-content:center;
+      color: rgba(238,242,255,.84);
+      font-family: var(--mono);
+      font-size: 12px;
+      letter-spacing:.3px;
+      padding:10px;
+      text-align:center;
+    }
+    .info{padding:14px;}
+    .info b{display:block;}
+    .info span{color:var(--muted); font-size:13px;}
+    /* Booking section */
+    .booking{
+      background: linear-gradient(180deg, rgba(17,23,38,.92), rgba(15,20,34,.70));
+    }
+    .footer{
+      padding:26px 0 44px;
+      color:var(--muted);
+      font-size:13px;
+    }
+    .footer-row{
+      display:flex;
+      justify-content:space-between;
+      gap:14px;
+      flex-wrap:wrap;
+      align-items:center;
+    }
+    .mono{font-family:var(--mono);}
+  </style>
 </head>
+
 <body>
-    <img src="logo.png" alt="Logo">
-    <div class="button-container">
-        <a href="https://www.instagram.com/tumundo3dgc" class="link-button" target="_blank">Instagram</a>
-        <a href="https://tumundo3d.es/" class="link-button" target="_blank">Tu mundo 3D web</a>
-        <a href="https://tumundo3d.es/" class="link-button" target="_blank">otras redes</a>
-        <a href="https://tumundo3d.es/" class="link-button" target="_blank">otras redes</a>
+  <!-- NAV -->
+  <header class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="#top" aria-label="Inicio">
+        <span class="mark" aria-hidden="true"></span>
+        <span>ALAN LEDESMA</span>
+      </a>
+      <nav class="nav-links" aria-label="Secciones">
+        <a class="chip" href="#quien">Quien soy</a>
+        <a class="chip" href="#servicios">Servicios</a>
+        <a class="chip" href="#testimonios">Testimonios</a>
+        <a class="chip" href="#portfolio">Trabajos</a>
+        <a class="btn" href="#agendar">Agendar videollamada</a>
+      </nav>
     </div>
+  </header>
+
+  <main id="top" class="container">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-grid">
+        <div class="card">
+          <div class="card-inner">
+            <span class="kicker"><span class="kdot"></span> Modelador 3D / Character Artist / Technical Artist</span>
+            <h1>Modelos 3D listos para produccion: personajes, props y ambientes.</h1>
+            <p class="sub">
+              Trabajo con estudios e indies para convertir ideas en assets optimizados para
+              <b>Unity</b>, <b>Unreal</b> y <b>Godot</b>. Si queres, empezamos con una videollamada corta
+              para definir alcance, tiempos y entregables.
+            </p>
+
+            <div class="meta-row">
+              <span class="pill"><span class="dot"></span> Disponible para freelance</span>
+              <span class="pill"><span class="dot warn"></span> Enfoque: calidad + performance</span>
+              <span class="pill">🧰 Blender · ZBrush · Substance</span>
+            </div>
+
+            <div class="actions">
+              <a class="btn" href="#agendar">Agendar videollamada</a>
+              <a class="btn secondary" href="#portfolio">Ver trabajos</a>
+              <a class="btn secondary" href="#servicios">Ver servicios</a>
+            </div>
+
+            <div class="hr"></div>
+
+            <div class="grid2">
+              <div class="mini-card">
+                <b>Entrega clara</b>
+                <span>FBX/OBJ/GLB + texturas + renders. Archivo fuente si aplica.</span>
+                <div class="badge">entregables</div>
+              </div>
+              <div class="mini-card">
+                <b>Pipeline real-time</b>
+                <span>UVs limpias, retopo, optimizacion, y soporte para integracion.</span>
+                <div class="badge">game-ready</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- QUICK BOOK -->
+        <div class="card booking">
+          <div class="card-inner">
+            <h2 style="margin:0 0 8px; font-size:18px;">Agendar videollamada</h2>
+            <p class="sub" style="margin:0 0 14px;">
+              15-30 min para ultimar detalles: estilo, referencias, plataforma y presupuesto.
+            </p>
+
+            <!-- Reemplaza con tu link real (Calendly / Google Calendar / etc.) -->
+            <a class="btn" target="_blank" rel="noreferrer" href="https://calendly.com/TU_LINK_DE_CALENDLY">
+              Abrir agenda
+            </a>
+            <p class="small" style="margin:10px 0 0;">
+              Reemplaza <span class="mono">TU_LINK_DE_CALENDLY</span> por tu link real.
+            </p>
+
+            <div class="hr"></div>
+
+            <form id="miniForm">
+              <div class="grid2">
+                <input class="input" name="nombre" placeholder="Tu nombre" required />
+                <input class="input" name="email" type="email" placeholder="Tu email" required />
+              </div>
+
+              <select class="input" name="tipo" style="margin-top:10px;">
+                <option value="Personaje 3D">Personaje 3D</option>
+                <option value="Props / Assets">Props / Assets</option>
+                <option value="Ambiente / Nivel">Ambiente / Nivel</option>
+                <option value="Impresion 3D">Impresion 3D</option>
+                <option value="VFX / Shaders">VFX / Shaders</option>
+              </select>
+
+              <textarea class="input" name="mensaje" style="margin-top:10px;" placeholder="Contame: estilo, plataforma, deadline, referencias... (2-3 lineas)" required></textarea>
+
+              <button class="btn" type="submit" style="width:100%;">Enviar y coordinar</button>
+              <div class="success" id="miniOk">Listo. Se abrio tu email con el mensaje prearmado ✅</div>
+
+              <p class="small" style="margin:10px 0 0;">
+                Esto no usa servidor: abre tu cliente de email con un borrador listo para enviar.
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+<!-- QUIEN SOY -->
+<div class="mini-card">
+  <b>Habilidades técnicas</b>
+  <span>Herramientas y areas en las que trabajo a diario.</span>
+
+  <div class="skills">
+
+    <div class="skill-group">
+      <h4>Modelado 3D</h4>
+
+      <div class="skill">
+        <span>Personajes</span>
+        <div class="bar"><div style="width:90%"></div></div>
+      </div>
+
+      <div class="skill">
+        <span>Props & Assets</span>
+        <div class="bar"><div style="width:95%"></div></div>
+      </div>
+
+      <div class="skill">
+        <span>Ambientes</span>
+        <div class="bar"><div style="width:80%"></div></div>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <h4>Pipeline</h4>
+
+      <div class="skill">
+        <span>Retopologia & UVs</span>
+        <div class="bar"><div style="width:95%"></div></div>
+      </div>
+
+      <div class="skill">
+        <span>Texturizado (PBR)</span>
+        <div class="bar"><div style="width:90%"></div></div>
+      </div>
+
+      <div class="skill">
+        <span>Optimizacion real-time</span>
+        <div class="bar"><div style="width:85%"></div></div>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <h4>Software</h4>
+
+      <div class="skill">
+        <span>Blender</span>
+        <div class="bar"><div style="width:95%"></div></div>
+      </div>
+
+      <div class="skill">
+        <span>ZBrush</span>
+        <div class="bar"><div style="width:85%"></div></div>
+      </div>
+
+      <div class="skill">
+        <span>Substance Painter</span>
+        <div class="bar"><div style="width:90%"></div></div>
+      </div>
+    </div>
+
+    <div class="skill-group">
+      <h4>Motores</h4>
+
+      <div class="skill">
+        <span>Unity</span>
+        <div class="bar"><div style="width:85%"></div></div>
+      </div>
+
+      <div class="skill">
+        <span>Unreal Engine</span>
+        <div class="bar"><div style="width:75%"></div></div>
+      </div>
+
+      <div class="skill">
+        <span>Godot</span>
+        <div class="bar"><div style="width:70%"></div></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+    </section>
+    <!-- QUIEN SOY -->
+    <section id="quien">
+      <div class="section-title">
+        <div>
+          <h2>Bienvenida / Quien soy</h2>
+          <p>Una intro corta para generar confianza.</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-inner">
+          <div class="grid2">
+            <div>
+              <h3 style="margin:0 0 8px;">Hola, soy Alan.</h3>
+              <p class="sub" style="margin:0;">
+                Modelador 3D enfocado en personajes y assets para videojuegos, con experiencia en proyectos
+                para tiempo real e impresion 3D. Me importa que el modelo se vea bien, pero tambien que funcione bien:
+                topologia limpia, UVs correctas y optimizacion segun plataforma.
+              </p>
+              <div class="hr"></div>
+              <div class="meta-row">
+                <span class="pill">🧩 Personajes / props / ambientes</span>
+                <span class="pill">⚙️ Optimizacion</span>
+                <span class="pill">🎨 Lookdev / texturas</span>
+              </div>
+            </div>
+
+            <div class="mini-card" style="height:100%;">
+              <b>Foto o collage (opcional)</b>
+              <span>Reemplaza esto por una imagen tuya o un collage de renders.</span>
+              <div class="thumb" style="margin-top:12px; border-radius:14px; height:240px;">
+                Aqui va tu imagen (placeholder)
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICIOS + COMO LO HAGO -->
+    <section id="servicios">
+      <div class="section-title">
+        <div>
+          <h2>Que servicio ofrezco (y como lo hago)</h2>
+          <p>Servicios claros + proceso para evitar dudas.</p>
+        </div>
+        <a class="chip" href="#agendar">Quiero hablarlo en videollamada</a>
+      </div>
+
+      <div class="cards">
+        <div class="mini-card">
+          <b>Personajes 3D</b>
+          <span>Estilizados o semi-realistas. Retopo + UV + texturas. Listos para engine o rig.</span>
+          <div class="badge">rig-ready · game-ready</div>
+        </div>
+        <div class="mini-card">
+          <b>Props & Assets</b>
+          <span>Items, packs, set dressing. Optimizados para rendimiento y consistencia visual.</span>
+          <div class="badge">low/high · optimizado</div>
+        </div>
+        <div class="mini-card">
+          <b>Ambientes</b>
+          <span>Kits modulares, trims, tiling, composicion de nivel y optimizacion.</span>
+          <div class="badge">modular · trims</div>
+        </div>
+        <div class="mini-card">
+          <b>Impresion 3D</b>
+          <span>Figuras tipo Funko / estatuas. STL limpio, watertight y listo para imprimir.</span>
+          <div class="badge">STL · watertight</div>
+        </div>
+        <div class="mini-card">
+          <b>VFX / Shaders (opcional)</b>
+          <span>Efectos y shaders estilizados para tiempo real. Optimizados segun motor.</span>
+          <div class="badge">Unity · Unreal · Godot</div>
+        </div>
+        <div class="mini-card">
+          <b>Direccion 3D (opcional)</b>
+          <span>Guia de estilo, coherencia visual, y pipeline para equipos o packs.</span>
+          <div class="badge">lookdev · pipeline</div>
+        </div>
+      </div>
+
+      <div class="hr"></div>
+
+      <div class="steps">
+        <div class="step">
+          <div class="num">1</div>
+          <b>Brief</b>
+          <span>Definimos referencias, plataforma, estilo y objetivos. (ideal en videollamada)</span>
+        </div>
+        <div class="step">
+          <div class="num">2</div>
+          <b>Blockout</b>
+          <span>Primera version para aprobar silueta y proporciones antes de detallar.</span>
+        </div>
+        <div class="step">
+          <div class="num">3</div>
+          <b>Produccion</b>
+          <span>Modelado, UVs, bake, texturas y optimizacion. Entregas por hitos.</span>
+        </div>
+        <div class="step">
+          <div class="num">4</div>
+          <b>Entrega final</b>
+          <span>Archivos listos + soporte para integracion y ajustes razonables.</span>
+        </div>
+      </div>
+
+      <div class="actions" style="margin-top:14px;">
+        <a class="btn" href="#agendar">Agendar videollamada</a>
+        <a class="btn secondary" href="#portfolio">Ver trabajos</a>
+      </div>
+    </section>
+
+    <!-- TESTIMONIOS -->
+    <section id="testimonios">
+      <div class="section-title">
+        <div>
+          <h2>Testimonios</h2>
+          <p>Prueba social. Pega aqui frases reales de clientes.</p>
+        </div>
+      </div>
+
+      <div class="quotes">
+        <div class="quote">
+          <div class="stars">★★★★★</div>
+          <p>"Excelente comunicacion y calidad. El asset llego listo para Unity."</p>
+          <div class="who">- Cliente / Estudio</div>
+        </div>
+        <div class="quote">
+          <div class="stars">★★★★★</div>
+          <p>"Cumplio tiempos y entendio el estilo a la primera. Recomendado."</p>
+          <div class="who">- Cliente</div>
+        </div>
+        <div class="quote">
+          <div class="stars">★★★★★</div>
+          <p>"Muy prolijo con UVs y optimizacion. Se integro sin problemas al proyecto."</p>
+          <div class="who">- Cliente / Indie dev</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PORTFOLIO -->
+    <section id="portfolio">
+      <div class="section-title">
+        <div>
+          <h2>Trabajos / Portfolio</h2>
+          <p>Reemplaza los placeholders por tus renders o imagenes.</p>
+        </div>
+
+        <div class="tabs" role="tablist" aria-label="Filtro de portfolio">
+          <span class="tab active" data-filter="all" role="tab" aria-selected="true">Todo</span>
+          <span class="tab" data-filter="personajes" role="tab">Personajes</span>
+          <span class="tab" data-filter="props" role="tab">Props</span>
+          <span class="tab" data-filter="ambientes" role="tab">Ambientes</span>
+          <span class="tab" data-filter="impresion" role="tab">Impresion 3D</span>
+          <span class="tab" data-filter="vfx" role="tab">VFX/Shaders</span>
+        </div>
+      </div>
+
+      <div class="portfolio" id="portfolioGrid">
+        <article class="work" data-cat="personajes">
+          <div class="thumb">Imagen 1 (Personaje)</div>
+          <div class="info">
+            <b>Personaje estilizado</b>
+            <span>Unity-ready · retopo + texturas PBR</span>
+          </div>
+        </article>
+
+        <article class="work" data-cat="props">
+          <div class="thumb">Imagen 2 (Props)</div>
+          <div class="info">
+            <b>Prop pack</b>
+            <span>Variantes + atlas · low poly</span>
+          </div>
+        </article>
+
+        <article class="work" data-cat="ambientes">
+          <div class="thumb">Imagen 3 (Ambiente)</div>
+          <div class="info">
+            <b>Kit modular</b>
+            <span>Trims + modularidad · optimizado</span>
+          </div>
+        </article>
+
+        <article class="work" data-cat="impresion">
+          <div class="thumb">Imagen 4 (Impresion 3D)</div>
+          <div class="info">
+            <b>Figura para impresion</b>
+            <span>STL watertight · detalles</span>
+          </div>
+        </article>
+
+        <article class="work" data-cat="vfx">
+          <div class="thumb">Imagen 5 (VFX)</div>
+          <div class="info">
+            <b>Shader estilizado</b>
+            <span>Toon + rimlight · performance</span>
+          </div>
+        </article>
+
+        <article class="work" data-cat="personajes">
+          <div class="thumb">Imagen 6 (Personaje)</div>
+          <div class="info">
+            <b>Busto / rostro</b>
+            <span>Escultura + bake · Substance</span>
+          </div>
+        </article>
+      </div>
+
+      <div class="actions" style="margin-top:14px;">
+        <a class="btn" href="#agendar">Agendar videollamada</a>
+        <a class="btn secondary" href="#servicios">Ver servicios</a>
+      </div>
+    </section>
+
+    <!-- AGENDAR -->
+    <section id="agendar">
+      <div class="section-title">
+        <div>
+          <h2>Agendar una videollamada para ultimar detalle</h2>
+          <p>Coordina una llamada corta y salis con un plan claro.</p>
+        </div>
+      </div>
+
+      <div class="card booking">
+        <div class="card-inner">
+          <div class="grid2">
+            <div>
+              <h3 style="margin:0 0 8px;">Agenda directa</h3>
+              <p class="sub" style="margin:0 0 14px;">
+                Recomendado: Calendly o Google Calendar. Pega tu link y listo.
+              </p>
+              <a class="btn" target="_blank" rel="noreferrer" href="https://calendly.com/TU_LINK_DE_CALENDLY">
+                Abrir agenda
+              </a>
+              <p class="small" style="margin:10px 0 0;">
+                Cambia el link por el tuyo: <span class="mono">https://calendly.com/...</span>
+              </p>
+
+              <div class="hr"></div>
+
+              <div class="mini-card">
+                <b>Que vamos a definir</b>
+                <span>- Estilo y referencias</span>
+                <span>- Plataforma (PC/Mobile/Web)</span>
+                <span>- Alcance, tiempos y entregables</span>
+                <span>- Presupuesto y forma de trabajo</span>
+                <div class="badge">15-30 min</div>
+              </div>
+            </div>
+
+            <div>
+              <h3 style="margin:0 0 8px;">O escribime</h3>
+              <p class="sub" style="margin:0 0 14px;">
+                Completa esto y se abre tu email con el mensaje listo.
+              </p>
+
+              <form id="contactForm">
+                <div class="grid2">
+                  <input class="input" name="nombre" placeholder="Nombre" required />
+                  <input class="input" name="email" type="email" placeholder="Email" required />
+                </div>
+                <input class="input" name="asunto" placeholder="Asunto (ej: personaje 3D para Unity)" style="margin-top:10px;" required />
+                <textarea class="input" name="mensaje" style="margin-top:10px;" placeholder="Detalles: estilo, referencias, plataforma, deadline, presupuesto aprox..." required></textarea>
+                <button class="btn" type="submit" style="width:100%;">Enviar</button>
+                <div class="success" id="contactOk">Listo. Se abrio tu email con el mensaje prearmado ✅</div>
+                <p class="small" style="margin:10px 0 0;">
+                  Tip: pega links a referencias (Pinterest/ArtStation) o un doc con el brief.
+                </p>
+              </form>
+            </div>
+          </div>
+
+          <div class="hr"></div>
+
+          <!-- Embed opcional (descomentarlo y poner tu link) -->
+          <div class="mini-card">
+            <b>Embed del calendario (opcional)</b>
+            <span>Si queres que el calendario aparezca dentro de la web, pega aqui tu iframe.</span>
+            <div style="margin-top:12px; border:1px dashed rgba(255,255,255,.18); border-radius:14px; overflow:hidden;">
+              <!--
+              <iframe
+                title="Calendario"
+                src="https://calendly.com/TU_LINK_DE_CALENDLY?hide_event_type_details=1&hide_gdpr_banner=1"
+                style="width:100%; height:540px; border:0; background:rgba(255,255,255,.02);">
+              </iframe>
+              -->
+              <div style="padding:14px; color:var(--muted); font-size:13px;">
+                Embed desactivado por defecto (para cargar rapido). Descomentá el iframe para activarlo.
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="hr"></div>
+      <div class="footer-row">
+        <div>© <span id="year"></span> Alan Ledesma — Modelador 3D</div>
+        <div class="mono">
+          Email: TU_EMAIL@DOMINIO.COM · Instagram: @sr_alan7 · ArtStation: TU_LINK
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script>
+    // year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // portfolio filter
+    const tabs = Array.from(document.querySelectorAll(".tab"));
+    const works = Array.from(document.querySelectorAll(".work"));
+
+    function setFilter(filter){
+      tabs.forEach(t => t.classList.toggle("active", t.dataset.filter === filter));
+      works.forEach(w => {
+        const ok = (filter === "all") || (w.dataset.cat === filter);
+        w.style.display = ok ? "" : "none";
+      });
+    }
+    tabs.forEach(t => t.addEventListener("click", () => setFilter(t.dataset.filter)));
+
+    // mailto forms (no backend)
+    const DEST_EMAIL = "TU_EMAIL@DOMINIO.COM"; // <- cambia esto
+
+    function buildMailto(subject, body){
+      const s = encodeURIComponent(subject);
+      const b = encodeURIComponent(body);
+      return `mailto:${DEST_EMAIL}?subject=${s}&body=${b}`;
+    }
+    function serializeForm(form){
+      const fd = new FormData(form);
+      const obj = {};
+      for (const [k,v] of fd.entries()) obj[k] = String(v).trim();
+      return obj;
+    }
+
+    const miniForm = document.getElementById("miniForm");
+    const miniOk = document.getElementById("miniOk");
+    miniForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const d = serializeForm(miniForm);
+      const subject = `[Videollamada] ${d.tipo} — ${d.nombre}`;
+      const body =
+`Hola Alan,
+
+Soy ${d.nombre} (${d.email}).
+Me interesa: ${d.tipo}.
+
+Detalles:
+${d.mensaje}
+
+Podemos coordinar una videollamada?
+Gracias.`;
+      window.location.href = buildMailto(subject, body);
+      miniOk.style.display = "block";
+      setTimeout(() => miniOk.style.display = "none", 6000);
+    });
+
+    const contactForm = document.getElementById("contactForm");
+    const contactOk = document.getElementById("contactOk");
+    contactForm.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const d = serializeForm(contactForm);
+      const subject = `${d.asunto} — ${d.nombre}`;
+      const body =
+`Hola Alan,
+
+Soy ${d.nombre} (${d.email}).
+
+${d.mensaje}
+
+Saludos.`;
+      window.location.href = buildMailto(subject, body);
+      contactOk.style.display = "block";
+      setTimeout(() => contactOk.style.display = "none", 6000);
+    });
+  </script>
 </body>
 </html>
