@@ -490,6 +490,27 @@ text-align: center;
 padding: 40px;
 color: var(--muted);
 }
+.testimonial-link {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  transition: 
+    transform .2s ease,
+    box-shadow .2s ease,
+    background .2s ease;
+}
+
+.testimonial-link:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(0,0,0,.08);
+  background: #f9fafb; /* opcional */
+}
+
+.testimonial-link:active {
+  transform: translateY(-2px);
+}
+
 </style>
 </head>
 <body>
@@ -577,10 +598,18 @@ Coordinamos una llamada corta para definir estilo, alcance y tiempos.
 <h2>Testimonios</h2>
 </div>
 <div class="testimonials">
-<div class="card testimonial">
-<p>"Excelente comunicación y calidad profesional."</p>
-<strong>Cliente freelance</strong>
-</div>
+<a 
+  href="https://marco-brunetti.vercel.app/"
+  target="_blank"
+  rel="noopener"
+  class="card testimonial testimonial-link"
+>
+  <p>"excelente rendimiento y trabajo en equipo"</p>
+  <strong>
+    Marco Brunetti / Presidente del IGDAPY
+  </strong>
+</a>
+
 <div class="card testimonial">
 <p>"Assets listos para Unity sin ajustes extra."</p>
 <strong>Indie developer</strong>
