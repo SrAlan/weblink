@@ -104,5 +104,103 @@
                 "number": 4
             }
         ]
+    },
+    "print": {
+        "Custon figure": [
+            {
+                "filename": "Custon figure_1.png",
+                "number": 1
+            }
+        ],
+        "Iron Maiden Figure": [
+            {
+                "filename": "Iron Maiden Figure_1.png",
+                "number": 1
+            }
+        ],
+        "Luffy OnePiece": [
+            {
+                "filename": "Luffy OnePiece_1.png",
+                "number": 1
+            },
+            {
+                "filename": "Luffy OnePiece_2.png",
+                "number": 2
+            },
+            {
+                "filename": "Luffy OnePiece_3.png",
+                "number": 3
+            }
+        ],
+        "My hero character": [
+            {
+                "filename": "My hero character_1.png",
+                "number": 1
+            }
+        ],
+        "The chakal": [
+            {
+                "filename": "The chakal_1.png",
+                "number": 1
+            }
+        ]
+    },
+    "game": {
+        "Maradona": [
+            {
+                "filename": "Maradona_1.png",
+                "number": 1
+            }
+        ],
+        "Monster": [
+            {
+                "filename": "Monster_1.png",
+                "number": 1
+            },
+            {
+                "filename": "Monster_2.png",
+                "number": 2
+            }
+        ],
+        "The Lost Shadow": [
+            {
+                "filename": "The Lost Shadow_1.png",
+                "number": 1
+            },
+            {
+                "filename": "The Lost Shadow_2.png",
+                "number": 2
+            },
+            {
+                "filename": "The Lost Shadow_3.png",
+                "number": 3
+            },
+            {
+                "filename": "The Lost Shadow_4.png",
+                "number": 4
+            }
+        ],
+        "g4": [
+            {
+                "filename": "g4_1.png",
+                "number": 1
+            },
+            {
+                "filename": "g4_2.png",
+                "number": 2
+            },
+            {
+                "filename": "g4_3.png",
+                "number": 3
+            },
+            {
+                "filename": "g4_4.png",
+                "number": 4
+            },
+            {
+                "filename": "g4_5.png",
+                "number": 5
+            }
+        ]
     }
 }
