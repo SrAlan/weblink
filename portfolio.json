@@ -1,0 +1,14 @@
+{
+  "render": [
+    "r1_1.jpg",
+    "r1_2.jpg",
+    "r2_1.jpg"
+  ],
+  "print": [
+    "p1_1.jpg",
+    "p1_2.jpg"
+  ],
+  "game": [
+    "g1_1.jpg"
+  ]
+}

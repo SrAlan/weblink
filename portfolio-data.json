@@ -1,0 +1,210 @@
+{
+    "render": {
+        "guerrero": [
+            {
+                "filename": "guerrero_1.jpg",
+                "number": 1
+            },
+            {
+                "filename": "guerrero_2.jpg",
+                "number": 2
+            },
+            {
+                "filename": "guerrero_3.jpg",
+                "number": 3
+            }
+        ],
+        "r1": [
+            {
+                "filename": "r1_1.jpg",
+                "number": 1
+            },
+            {
+                "filename": "r1_2.jpg",
+                "number": 2
+            },
+            {
+                "filename": "r1_3.jpg",
+                "number": 3
+            },
+            {
+                "filename": "r1_4.png",
+                "number": 4
+            },
+            {
+                "filename": "r1_5.png",
+                "number": 5
+            },
+            {
+                "filename": "r1_6.png",
+                "number": 6
+            }
+        ],
+        "r3": [
+            {
+                "filename": "r3_1.png",
+                "number": 1
+            },
+            {
+                "filename": "r3_2.png",
+                "number": 2
+            },
+            {
+                "filename": "r3_3.png",
+                "number": 3
+            }
+        ],
+        "r4": [
+            {
+                "filename": "r4_1.jpg",
+                "number": 1
+            },
+            {
+                "filename": "r4_2.jpg",
+                "number": 2
+            },
+            {
+                "filename": "r4_3.jpg",
+                "number": 3
+            },
+            {
+                "filename": "r4_4.jpg",
+                "number": 4
+            }
+        ],
+        "r5": [
+            {
+                "filename": "r5_1.jpg",
+                "number": 1
+            },
+            {
+                "filename": "r5_2.jpg",
+                "number": 2
+            },
+            {
+                "filename": "r5_3.jpg",
+                "number": 3
+            }
+        ],
+        "r6": [
+            {
+                "filename": "r6_1.png",
+                "number": 1
+            },
+            {
+                "filename": "r6_2.png",
+                "number": 2
+            },
+            {
+                "filename": "r6_3.png",
+                "number": 3
+            },
+            {
+                "filename": "r6_4.png",
+                "number": 4
+            }
+        ]
+    },
+    "print": {
+        "Iron Maiden Figure": [
+            {
+                "filename": "Iron Maiden Figure_1.png",
+                "number": 1
+            }
+        ],
+        "p1": [
+            {
+                "filename": "p1_1.png",
+                "number": 1
+            }
+        ],
+        "p3": [
+            {
+                "filename": "p3_1.png",
+                "number": 1
+            },
+            {
+                "filename": "p3_2.png",
+                "number": 2
+            },
+            {
+                "filename": "p3_3.png",
+                "number": 3
+            }
+        ],
+        "p4": [
+            {
+                "filename": "p4_1.png",
+                "number": 1
+            }
+        ],
+        "p5": [
+            {
+                "filename": "p5_1.png",
+                "number": 1
+            }
+        ]
+    },
+    "game": {
+        "g1": [
+            {
+                "filename": "g1_1.png",
+                "number": 1
+            },
+            {
+                "filename": "g1_2.png",
+                "number": 2
+            }
+        ],
+        "g2": [
+            {
+                "filename": "g2_1.png",
+                "number": 1
+            },
+            {
+                "filename": "g2_2.png",
+                "number": 2
+            },
+            {
+                "filename": "g2_3.png",
+                "number": 3
+            },
+            {
+                "filename": "g2_4.png",
+                "number": 4
+            }
+        ],
+        "g3": [
+            {
+                "filename": "g3_1.png",
+                "number": 1
+            },
+            {
+                "filename": "g3_2.png",
+                "number": 2
+            }
+        ],
+        "g4": [
+            {
+                "filename": "g4_1.png",
+                "number": 1
+            },
+            {
+                "filename": "g4_2.png",
+                "number": 2
+            },
+            {
+                "filename": "g4_3.png",
+                "number": 3
+            },
+            {
+                "filename": "g4_4.png",
+                "number": 4
+            },
+            {
+                "filename": "g4_5.png",
+                "number": 5
+            }
+        ]
+    }
+}

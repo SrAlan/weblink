@@ -1,388 +1,738 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="es">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Alan Ledesma | Modelador 3D</title>
 <meta name="description" content="Modelador 3D profesional. Personajes, props y assets listos para videojuegos. Agenda una videollamada para ultimar detalles.">
-
 <style>
 :root{
-  --bg:#f7f7f7;
-  --card:#ffffff;
-  --text:#222;
-  --muted:#6b7280;
-  --border:#e5e7eb;
-  --green:#1dbf73;
-  --green-soft:#e8f8f1;
-  --max:1100px;
-  --radius:12px;
-  --shadow:0 8px 24px rgba(0,0,0,.05);
-  --font: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu;
+--bg:#f7f7f7;
+--card:#ffffff;
+--text:#222;
+--muted:#6b7280;
+--border:#e5e7eb;
+--green:#1dbf73;
+--green-soft:#e8f8f1;
+--max:1100px;
+--radius:12px;
+--shadow:0 8px 24px rgba(0,0,0,.05);
+--font: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu;
 }
-
 *{box-sizing:border-box}
 body{
-  margin:0;
-  font-family:var(--font);
-  background:var(--bg);
-  color:var(--text);
-  line-height:1.5;
+margin:0;
+font-family:var(--font);
+background:var(--bg);
+color:var(--text);
+line-height:1.5;
 }
 a{text-decoration:none;color:inherit}
 .container{
-  max-width:var(--max);
-  margin:auto;
-  padding:0 20px;
+max-width:var(--max);
+margin:auto;
+padding:0 20px;
 }
 
 /* NAV */
 header{
-  background:#fff;
-  border-bottom:1px solid var(--border);
+background:#fff;
+border-bottom:1px solid var(--border);
+position: sticky;
+top: 0;
+z-index: 100;
 }
 .nav{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  height:64px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+height:64px;
 }
 .logo{
-  font-weight:700;
-  font-size:18px;
+font-weight:700;
+font-size:18px;
 }
 .nav a{
-  margin-left:20px;
-  font-size:14px;
-  color:var(--muted);
+margin-left:20px;
+font-size:14px;
+color:var(--muted);
 }
 .nav a.btn{
-  background:var(--green);
-  color:#fff;
-  padding:8px 14px;
-  border-radius:8px;
-  font-weight:600;
+background:var(--green);
+color:#fff;
+padding:8px 14px;
+border-radius:8px;
+font-weight:600;
 }
 
 /* HERO */
 .hero{
-  padding:70px 0 50px;
-  background:#fff;
+padding:70px 0 50px;
+background:#fff;
 }
 .hero-grid{
-  display:grid;
-  grid-template-columns:1.2fr .8fr;
-  gap:40px;
+display:grid;
+grid-template-columns:1.2fr .8fr;
+gap:40px;
 }
 @media(max-width:900px){
-  .hero-grid{grid-template-columns:1fr}
+.hero-grid{grid-template-columns:1fr}
 }
 .hero h1{
-  font-size:38px;
-  line-height:1.2;
-  margin:0 0 12px;
+font-size:38px;
+line-height:1.2;
+margin:0 0 12px;
 }
 .hero p{
-  color:var(--muted);
-  max-width:520px;
+color:var(--muted);
+max-width:520px;
 }
 .hero .actions{
-  margin-top:24px;
+margin-top:24px;
 }
 .hero .actions a{
-  display:inline-block;
-  margin-right:12px;
-  padding:12px 18px;
-  border-radius:8px;
-  font-weight:600;
+display:inline-block;
+margin-right:12px;
+padding:12px 18px;
+border-radius:8px;
+font-weight:600;
 }
 .primary{
-  background:var(--green);
-  color:#fff;
+background:var(--green);
+color:#fff;
 }
 .secondary{
-  border:1px solid var(--border);
-  color:var(--text);
+border:1px solid var(--border);
+color:var(--text);
 }
 
 /* CARDS */
 .card{
-  background:var(--card);
-  border:1px solid var(--border);
-  border-radius:var(--radius);
-  box-shadow:var(--shadow);
-  padding:24px;
+background:var(--card);
+border:1px solid var(--border);
+border-radius:var(--radius);
+box-shadow:var(--shadow);
+padding:24px;
 }
 
 /* SECTIONS */
 section{
-  padding:60px 0;
+padding:60px 0;
 }
 .section-title{
-  margin-bottom:30px;
+margin-bottom:30px;
 }
 .section-title h2{
-  margin:0;
-  font-size:26px;
+margin:0;
+font-size:26px;
 }
 .section-title p{
-  color:var(--muted);
-  margin-top:6px;
+color:var(--muted);
+margin-top:6px;
 }
 
 /* SERVICES */
 .services{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:20px;
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:20px;
 }
 @media(max-width:900px){
-  .services{grid-template-columns:1fr}
+.services{grid-template-columns:1fr}
 }
 .service h3{
-  margin-top:0;
+margin-top:0;
 }
 .service p{
-  color:var(--muted);
-  font-size:14px;
+color:var(--muted);
+font-size:14px;
 }
 
 /* SKILLS */
 .skills{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:16px;
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:16px;
 }
 @media(max-width:700px){
-  .skills{grid-template-columns:1fr}
+.skills{grid-template-columns:1fr}
 }
 .skill{
-  background:var(--green-soft);
-  border-radius:8px;
-  padding:12px 14px;
-  font-size:14px;
+background:var(--green-soft);
+border-radius:8px;
+padding:12px 14px;
+font-size:14px;
 }
 
 /* TESTIMONIALS */
 .testimonials{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:20px;
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:20px;
 }
 @media(max-width:900px){
-  .testimonials{grid-template-columns:1fr}
+.testimonials{grid-template-columns:1fr}
 }
 .testimonial p{
-  font-size:14px;
-  color:var(--muted);
+font-size:14px;
+color:var(--muted);
 }
 .testimonial strong{
-  display:block;
-  margin-top:10px;
-  font-size:13px;
+display:block;
+margin-top:10px;
+font-size:13px;
 }
 
-/* PORTFOLIO */
-.portfolio{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:20px;
+/* PORTFOLIO CATEGORIES */
+.portfolio-categories{
+display: flex;
+gap: 12px;
+margin-bottom: 30px;
+flex-wrap: wrap;
 }
-@media(max-width:900px){
-  .portfolio{grid-template-columns:1fr}
+.category-btn{
+padding: 10px 20px;
+border-radius: 8px;
+border: 2px solid var(--border);
+background: #fff;
+cursor: pointer;
+font-weight: 600;
+transition: all 0.3s;
+font-size: 14px;
 }
-.work{
-  border:1px solid var(--border);
-  border-radius:10px;
-  overflow:hidden;
+.category-btn:hover{
+border-color: var(--green);
 }
-.thumb{
-  height:160px;
-  background:#eef2f7;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color:#9ca3af;
-  font-size:13px;
+.category-btn.active{
+background: var(--green);
+color: #fff;
+border-color: var(--green);
 }
-.work-info{
-  padding:14px;
-  font-size:14px;
+
+/* PROJECTS GRID */
+.projects-grid{
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+gap: 20px;
+}
+.project-card{
+border: 1px solid var(--border);
+border-radius: 10px;
+overflow: hidden;
+cursor: pointer;
+transition: transform 0.2s, box-shadow 0.2s;
+background: #fff;
+}
+.project-card:hover{
+transform: translateY(-4px);
+box-shadow: var(--shadow);
+}
+.project-thumbnail{
+height: 200px;
+background: #eef2f7;
+overflow: hidden;
+position: relative;
+}
+.project-thumbnail img{
+width: 100%;
+height: 100%;
+object-fit: cover;
+}
+.project-info{
+padding: 16px;
+}
+.project-info h4{
+margin: 0 0 8px 0;
+font-size: 16px;
+}
+.project-info p{
+margin: 0;
+font-size: 13px;
+color: var(--muted);
+}
+.image-count{
+position: absolute;
+bottom: 10px;
+right: 10px;
+background: rgba(0,0,0,0.7);
+color: #fff;
+padding: 4px 10px;
+border-radius: 6px;
+font-size: 12px;
+font-weight: 600;
+}
+
+/* MODAL/LIGHTBOX */
+.modal{
+display: none;
+position: fixed;
+z-index: 1000;
+left: 0;
+top: 0;
+width: 100%;
+height: 100%;
+background: rgba(0,0,0,0.95);
+}
+.modal.active{
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.modal-content{
+max-width: 90%;
+max-height: 90%;
+position: relative;
+}
+.modal-image{
+max-width: 100%;
+max-height: 85vh;
+display: block;
+margin: auto;
+border-radius: 8px;
+}
+.modal-close{
+position: absolute;
+top: 20px;
+right: 30px;
+color: #fff;
+font-size: 40px;
+font-weight: bold;
+cursor: pointer;
+z-index: 1001;
+}
+.modal-nav{
+position: absolute;
+top: 50%;
+transform: translateY(-50%);
+background: rgba(255,255,255,0.2);
+color: #fff;
+border: none;
+font-size: 30px;
+padding: 16px 20px;
+cursor: pointer;
+border-radius: 8px;
+transition: background 0.3s;
+}
+.modal-nav:hover{
+background: rgba(255,255,255,0.3);
+}
+.modal-prev{
+left: 20px;
+}
+.modal-next{
+right: 20px;
+}
+.modal-info{
+text-align: center;
+color: #fff;
+margin-top: 15px;
+font-size: 14px;
 }
 
 /* BOOKING */
 .booking{
-  background:#fff;
-  border:1px solid var(--border);
-  border-radius:var(--radius);
-  padding:30px;
-  text-align:center;
+background:#fff;
+border:1px solid var(--border);
+border-radius:var(--radius);
+padding:30px;
+text-align:center;
 }
 .booking a{
-  display:inline-block;
-  margin-top:20px;
-  background:var(--green);
-  color:#fff;
-  padding:14px 22px;
-  border-radius:8px;
-  font-weight:600;
+display:inline-block;
+margin-top:20px;
+background:var(--green);
+color:#fff;
+padding:14px 22px;
+border-radius:8px;
+font-weight:600;
 }
 
 /* FOOTER */
 footer{
-  border-top:1px solid var(--border);
-  padding:30px 0;
-  font-size:13px;
-  color:var(--muted);
-  text-align:center;
+border-top:1px solid var(--border);
+padding:30px 0;
+font-size:13px;
+color:var(--muted);
+text-align:center;
+}
+
+.hidden{
+display: none;
+}
+
+/* Loading */
+.loading{
+text-align: center;
+padding: 40px;
+color: var(--muted);
 }
 </style>
 </head>
-
 <body>
 
 <header>
-  <div class="container nav">
-    <div class="logo">Alan Ledesma</div>
-    <nav>
-      <a href="#servicios">Servicios</a>
-      <a href="#portfolio">Trabajos</a>
-      <a href="#contacto" class="btn">Agendar llamada</a>
-    </nav>
-  </div>
+<div class="container nav">
+<div class="logo">Alan Ledesma</div>
+<nav>
+<a href="#servicios">Servicios</a>
+<a href="#portfolio">Trabajos</a>
+<a href="#contacto" class="btn">Agendar llamada</a>
+</nav>
+</div>
 </header>
 
 <section class="hero">
-  <div class="container hero-grid">
-    <div>
-      <h1>Modelador 3D para videojuegos y proyectos interactivos</h1>
-      <p>
-        Ayudo a estudios y desarrolladores a transformar ideas en modelos 3D
-        listos para producción, optimizados y fáciles de integrar.
-      </p>
-      <div class="actions">
-        <a href="#contacto" class="primary">Agendar videollamada</a>
-        <a href="#portfolio" class="secondary">Ver trabajos</a>
-      </div>
-    </div>
-
-    <div class="card">
-      <h3>¿Cómo puedo ayudarte?</h3>
-      <p class="muted">
-        Coordinamos una llamada corta para definir estilo, alcance y tiempos.
-      </p>
-      <ul style="color:var(--muted); font-size:14px;">
-        <li>Personajes y props</li>
-        <li>Assets optimizados</li>
-        <li>Impresión 3D</li>
-      </ul>
-    </div>
-  </div>
+<div class="container hero-grid">
+<div>
+<h1>Modelador 3D para videojuegos y proyectos interactivos</h1>
+<p>
+Ayudo a estudios y desarrolladores a transformar ideas en modelos 3D listos para producción, optimizados y fáciles de integrar.
+</p>
+<div class="actions">
+<a href="#contacto" class="primary">Agendar videollamada</a>
+<a href="#portfolio" class="secondary">Ver trabajos</a>
+</div>
+</div>
+<div class="card">
+<h3>¿Cómo puedo ayudarte?</h3>
+<p class="muted">
+Coordinamos una llamada corta para definir estilo, alcance y tiempos.
+</p>
+<ul style="color:var(--muted); font-size:14px;">
+<li>Personajes y props</li>
+<li>Assets optimizados</li>
+<li>Impresión 3D</li>
+</ul>
+</div>
+</div>
 </section>
 
 <section id="servicios">
-  <div class="container">
-    <div class="section-title">
-      <h2>Servicios</h2>
-      <p>Soluciones claras, sin vueltas.</p>
-    </div>
-
-    <div class="services">
-      <div class="card service">
-        <h3>Personajes 3D</h3>
-        <p>Estilizados o semi realistas, listos para animar o integrar.</p>
-      </div>
-      <div class="card service">
-        <h3>Props & Assets</h3>
-        <p>Objetos y packs optimizados para videojuegos.</p>
-      </div>
-      <div class="card service">
-        <h3>Impresión 3D</h3>
-        <p>Modelos STL limpios, listos para imprimir.</p>
-      </div>
-    </div>
-  </div>
+<div class="container">
+<div class="section-title">
+<h2>Servicios</h2>
+<p>Soluciones claras, sin vueltas.</p>
+</div>
+<div class="services">
+<div class="card service">
+<h3>Personajes 3D</h3>
+<p>Estilizados o semi realistas, listos para animar o integrar.</p>
+</div>
+<div class="card service">
+<h3>Props & Assets</h3>
+<p>Objetos y packs optimizados para videojuegos.</p>
+</div>
+<div class="card service">
+<h3>Impresión 3D</h3>
+<p>Modelos STL limpios, listos para imprimir.</p>
+</div>
+</div>
+</div>
 </section>
 
 <section>
-  <div class="container">
-    <div class="section-title">
-      <h2>Habilidades</h2>
-      <p>En qué soy fuerte.</p>
-    </div>
-
-    <div class="skills">
-      <div class="skill">Modelado de personajes</div>
-      <div class="skill">Retopología & UVs</div>
-      <div class="skill">Texturizado PBR</div>
-      <div class="skill">Optimización real-time</div>
-      <div class="skill">Blender / ZBrush</div>
-      <div class="skill">Unity / Unreal / Godot</div>
-    </div>
-  </div>
+<div class="container">
+<div class="section-title">
+<h2>Habilidades</h2>
+<p>En qué soy fuerte.</p>
+</div>
+<div class="skills">
+<div class="skill">Modelado de personajes</div>
+<div class="skill">Retopología & UVs</div>
+<div class="skill">Texturizado PBR</div>
+<div class="skill">Optimización real-time</div>
+<div class="skill">Blender / ZBrush</div>
+<div class="skill">Unity / Unreal / Godot</div>
+</div>
+</div>
 </section>
 
 <section>
-  <div class="container">
-    <div class="section-title">
-      <h2>Testimonios</h2>
-    </div>
-
-    <div class="testimonials">
-      <div class="card testimonial">
-        <p>“Excelente comunicación y calidad profesional.”</p>
-        <strong>Cliente freelance</strong>
-      </div>
-      <div class="card testimonial">
-        <p>“Assets listos para Unity sin ajustes extra.”</p>
-        <strong>Indie developer</strong>
-      </div>
-      <div class="card testimonial">
-        <p>“Muy prolijo y confiable con los tiempos.”</p>
-        <strong>Estudio pequeño</strong>
-      </div>
-    </div>
-  </div>
+<div class="container">
+<div class="section-title">
+<h2>Testimonios</h2>
+</div>
+<div class="testimonials">
+<div class="card testimonial">
+<p>"Excelente comunicación y calidad profesional."</p>
+<strong>Cliente freelance</strong>
+</div>
+<div class="card testimonial">
+<p>"Assets listos para Unity sin ajustes extra."</p>
+<strong>Indie developer</strong>
+</div>
+<div class="card testimonial">
+<p>"Muy prolijo y confiable con los tiempos."</p>
+<strong>Estudio pequeño</strong>
+</div>
+</div>
+</div>
 </section>
 
 <section id="portfolio">
-  <div class="container">
-    <div class="section-title">
-      <h2>Trabajos</h2>
-    </div>
+<div class="container">
+<div class="section-title">
+<h2>Trabajos</h2>
+<p>Explorá mis proyectos por categoría</p>
+</div>
 
-    <div class="portfolio">
-      <div class="work">
-        <div class="thumb">Imagen</div>
-        <div class="work-info">Personaje estilizado</div>
-      </div>
-      <div class="work">
-        <div class="thumb">Imagen</div>
-        <div class="work-info">Prop game-ready</div>
-      </div>
-      <div class="work">
-        <div class="thumb">Imagen</div>
-        <div class="work-info">Modelo para impresión</div>
-      </div>
-    </div>
-  </div>
+<!-- Categorías -->
+<div class="portfolio-categories" id="categoryButtons">
+<button class="category-btn active" data-category="all">Todos</button>
+</div>
+
+<!-- Grid de proyectos -->
+<div class="projects-grid" id="projectsGrid">
+<div class="loading">Cargando proyectos...</div>
+</div>
+</div>
 </section>
 
+<!-- Modal para galería de imágenes -->
+<div class="modal" id="imageModal">
+<span class="modal-close" onclick="closeModal()">&times;</span>
+<button class="modal-nav modal-prev" onclick="changeImage(-1)">&#10094;</button>
+<button class="modal-nav modal-next" onclick="changeImage(1)">&#10095;</button>
+<div class="modal-content">
+<img class="modal-image" id="modalImage" src="">
+<div class="modal-info" id="modalInfo"></div>
+</div>
+</div>
+
 <section id="contacto">
-  <div class="container">
-    <div class="booking">
-      <h2>Agendá una videollamada</h2>
-      <p>
-        Definimos tu proyecto, tiempos y presupuesto sin compromiso.
-      </p>
-      <a href="https://calendly.com/TU_LINK">Agendar ahora</a>
-    </div>
-  </div>
+<div class="container">
+<div class="booking">
+<h2>Agendá una videollamada</h2>
+<p>
+Definimos tu proyecto, tiempos y presupuesto sin compromiso.
+</p>
+<a href="https://calendly.com/TU_LINK">Agendar ahora</a>
+</div>
+</div>
 </section>
 
 <footer>
-  © 2026 · Alan Ledesma · Modelador 3D
+© 2026 · Alan Ledesma · Modelador 3D
 </footer>
+
+<script>
+// ============================================
+// SISTEMA AUTOMÁTICO CON JSON
+// ============================================
+// Este archivo carga automáticamente desde portfolio-data.json
+// Para actualizar: ejecuta scan-images.php
+
+const IMAGE_FOLDER = 'images';
+
+// Variables globales
+let currentCategory = 'all';
+let currentProject = null;
+let currentImageIndex = 0;
+let allProjects = [];
+
+// Mapeo de nombres de categorías
+const categoryNames = {
+  render: 'Render',
+  print: 'Print',
+  game: 'Game'
+};
+
+// ============================================
+// FUNCIONES DE CARGA
+// ============================================
+
+// Cargar datos desde JSON
+async function loadPortfolioData() {
+  try {
+    const response = await fetch('portfolio-data.json?t=' + Date.now());
+    const data = await response.json();
+    return processPortfolioData(data);
+  } catch (error) {
+    console.error('Error cargando portfolio-data.json:', error);
+    return [];
+  }
+}
+
+// Procesar datos del JSON
+function processPortfolioData(data) {
+  const projects = [];
+  
+  Object.keys(data).forEach(category => {
+    const categoryProjects = data[category];
+    
+    Object.keys(categoryProjects).forEach(projectName => {
+      const projectImages = categoryProjects[projectName];
+      
+      projects.push({
+        name: formatProjectName(projectName),
+        category: category,
+        images: projectImages.map(img => ({
+          filename: img.filename,
+          number: img.number,
+          path: `${IMAGE_FOLDER}/${category}/${img.filename}`
+        }))
+      });
+    });
+  });
+  
+  return projects;
+}
+
+// Formatear nombre del proyecto
+function formatProjectName(name) {
+  return name
+    .replace(/[-_]/g, ' ')
+    .split(' ')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ');
+}
+
+// Crear botones de categoría
+function createCategoryButtons() {
+  const container = document.getElementById('categoryButtons');
+  container.innerHTML = '<button class="category-btn active" data-category="all">Todos</button>';
+  
+  const categoriesFound = new Set();
+  allProjects.forEach(p => categoriesFound.add(p.category));
+  
+  categoriesFound.forEach(category => {
+    const btn = document.createElement('button');
+    btn.className = 'category-btn';
+    btn.dataset.category = category;
+    btn.textContent = categoryNames[category] || category;
+    btn.onclick = function() {
+      document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
+      this.classList.add('active');
+      loadProjects(category);
+    };
+    container.appendChild(btn);
+  });
+}
+
+// ============================================
+// FUNCIONES DE VISUALIZACIÓN
+// ============================================
+
+// Cargar proyectos en la vista
+function loadProjects(category = 'all') {
+  const grid = document.getElementById('projectsGrid');
+  grid.innerHTML = '';
+  
+  let projectsToShow = category === 'all' 
+    ? allProjects 
+    : allProjects.filter(p => p.category === category);
+  
+  // Crear tarjetas de proyecto
+  projectsToShow.forEach(project => {
+    const card = document.createElement('div');
+    card.className = 'project-card';
+    card.onclick = () => openProject(project);
+    
+    const thumbnail = project.images[0].path;
+    
+    card.innerHTML = `
+      <div class="project-thumbnail">
+        <img src="${thumbnail}" alt="${project.name}" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22280%22 height=%22200%22%3E%3Crect fill=%22%23eef2f7%22 width=%22280%22 height=%22200%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%239ca3af%22 font-family=%22system-ui%22 font-size=%2214%22%3EImagen%3C/text%3E%3C/svg%3E'">
+        <span class="image-count">${project.images.length} ${project.images.length === 1 ? 'imagen' : 'imágenes'}</span>
+      </div>
+      <div class="project-info">
+        <h4>${project.name}</h4>
+        <p>${categoryNames[project.category]}</p>
+      </div>
+    `;
+    
+    grid.appendChild(card);
+  });
+  
+  // Si no hay proyectos
+  if (projectsToShow.length === 0) {
+    grid.innerHTML = '<p style="text-align:center; color:var(--muted); padding:40px;">No hay proyectos en esta categoría.</p>';
+  }
+}
+
+// Abrir proyecto en modal
+function openProject(project) {
+  currentProject = project;
+  currentImageIndex = 0;
+  showImage();
+  document.getElementById('imageModal').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+// Mostrar imagen en modal
+function showImage() {
+  if (!currentProject) return;
+  
+  const img = document.getElementById('modalImage');
+  const info = document.getElementById('modalInfo');
+  
+  const currentImage = currentProject.images[currentImageIndex];
+  img.src = currentImage.path;
+  
+  info.innerHTML = `
+    <strong>${currentProject.name}</strong><br>
+    ${currentImageIndex + 1} / ${currentProject.images.length}
+  `;
+}
+
+// Cambiar imagen
+function changeImage(direction) {
+  if (!currentProject) return;
+  
+  currentImageIndex += direction;
+  
+  if (currentImageIndex < 0) {
+    currentImageIndex = currentProject.images.length - 1;
+  } else if (currentImageIndex >= currentProject.images.length) {
+    currentImageIndex = 0;
+  }
+  
+  showImage();
+}
+
+// Cerrar modal
+function closeModal() {
+  document.getElementById('imageModal').classList.remove('active');
+  document.body.style.overflow = 'auto';
+  currentProject = null;
+}
+
+// ============================================
+// EVENT LISTENERS
+// ============================================
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    closeModal();
+  } else if (e.key === 'ArrowLeft') {
+    changeImage(-1);
+  } else if (e.key === 'ArrowRight') {
+    changeImage(1);
+  }
+});
+
+document.getElementById('imageModal').addEventListener('click', function(e) {
+  if (e.target === this) {
+    closeModal();
+  }
+});
+
+// ============================================
+// INICIALIZACIÓN
+// ============================================
+
+window.addEventListener('DOMContentLoaded', async function() {
+  allProjects = await loadPortfolioData();
+  
+  if (allProjects.length > 0) {
+    createCategoryButtons();
+    loadProjects('all');
+  } else {
+    document.getElementById('projectsGrid').innerHTML = 
+      '<div class="loading">No se encontraron proyectos. Por favor ejecuta scan-images.php para generar el archivo portfolio-data.json</div>';
+  }
+});
+</script>
 
 </body>
 </html>
