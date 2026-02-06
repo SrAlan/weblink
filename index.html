@@ -63,6 +63,41 @@ color:#fff;
 padding:8px 14px;
 border-radius:8px;
 font-weight:600;
+white-space: nowrap;
+}
+
+@media(max-width:600px){
+.nav{
+flex-wrap: wrap;
+height: auto;
+padding: 10px 0;
+}
+.nav a{
+margin-left:10px;
+font-size:13px;
+}
+.nav a.btn{
+padding:6px 10px;
+font-size:12px;
+}
+.logo{
+font-size:16px;
+}
+.btn-text-full{
+display: none;
+}
+.btn-text-short{
+display: inline;
+}
+}
+
+@media(min-width:601px){
+.btn-text-full{
+display: inline;
+}
+.btn-text-short{
+display: none;
+}
 }
 
 /* HERO */
@@ -376,7 +411,7 @@ color: var(--muted);
 <nav>
 <a href="#servicios">Servicios</a>
 <a href="#portfolio">Trabajos</a>
-<a href="#contacto" class="btn">Agendar llamada</a>
+<a href="#contacto" class="btn"><span class="btn-text-full">Agendar llamada</span><span class="btn-text-short">Agendar</span></a>
 </nav>
 </div>
 </header>
