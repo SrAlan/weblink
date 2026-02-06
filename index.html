@@ -645,6 +645,38 @@ color: var(--muted);
           saturate(400%) hue-rotate(90deg);
 }
 
+@media (max-width: 640px) {
+
+  .about-grid{
+    grid-template-columns: 1fr;   /* una sola columna */
+    gap: 20px;
+    text-align: center;
+  }
+
+  .about-photo{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .about-photo img{
+    width: 180px;     /* más chica en móvil */
+    height: 180px;
+  }
+
+  .about-text h3{
+    font-size: 20px;
+  }
+
+  .about-text p{
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+
+  .about-socials{
+    justify-content: center;  /* íconos centrados */
+  }
+}
 
 </style>
 </head>
