@@ -1,5 +1,59 @@
 {
     "render": {
+        "3D Character Anime style": [
+            {
+                "filename": "3D Character Anime style_1.jpg",
+                "number": 1
+            },
+            {
+                "filename": "3D Character Anime style_2.jpg",
+                "number": 2
+            },
+            {
+                "filename": "3D Character Anime style_3.jpg",
+                "number": 3
+            },
+            {
+                "filename": "3D Character Anime style_4.jpg",
+                "number": 4
+            }
+        ],
+        "3D Character for Animation": [
+            {
+                "filename": "3D Character for Animation_1.png",
+                "number": 1
+            },
+            {
+                "filename": "3D Character for Animation_2.jpg",
+                "number": 2
+            },
+            {
+                "filename": "3D Character for Animation_3.jpg",
+                "number": 3
+            },
+            {
+                "filename": "3D Character for Animation_4.jpg",
+                "number": 4
+            }
+        ],
+        "Jaguata 2024": [
+            {
+                "filename": "Jaguata 2024_1.png",
+                "number": 1
+            },
+            {
+                "filename": "Jaguata 2024_2.png",
+                "number": 2
+            },
+            {
+                "filename": "Jaguata 2024_3.png",
+                "number": 3
+            },
+            {
+                "filename": "Jaguata 2024_4.png",
+                "number": 4
+            }
+        ],
         "Stylized Goblin": [
             {
                 "filename": "Stylized Goblin_1.png",
@@ -14,94 +68,48 @@
                 "number": 3
             }
         ],
-        "Stylized character": [
+        "Stylized character 2023": [
             {
-                "filename": "Stylized character_1.jpg",
+                "filename": "Stylized character 2023_1.jpg",
                 "number": 1
             },
             {
-                "filename": "Stylized character_2.jpg",
+                "filename": "Stylized character 2023_2.jpg",
                 "number": 2
             },
             {
-                "filename": "Stylized character_3.jpg",
+                "filename": "Stylized character 2023_3.jpg",
+                "number": 3
+            }
+        ],
+        "Stylized character 2024": [
+            {
+                "filename": "Stylized character 2024_1.png",
+                "number": 1
+            },
+            {
+                "filename": "Stylized character 2024_2.jpg",
+                "number": 2
+            },
+            {
+                "filename": "Stylized character 2024_3.jpg",
                 "number": 3
             },
             {
-                "filename": "Stylized character_4.png",
+                "filename": "Stylized character 2024_4.jpg",
                 "number": 4
             },
             {
-                "filename": "Stylized character_5.png",
+                "filename": "Stylized character 2024_5.png",
                 "number": 5
             },
             {
-                "filename": "Stylized character_6.png",
+                "filename": "Stylized character 2024_6.png",
                 "number": 6
-            }
-        ],
-        "guerrero": [
-            {
-                "filename": "guerrero_1.jpg",
-                "number": 1
             },
             {
-                "filename": "guerrero_2.jpg",
-                "number": 2
-            },
-            {
-                "filename": "guerrero_3.jpg",
-                "number": 3
-            }
-        ],
-        "r4": [
-            {
-                "filename": "r4_1.jpg",
-                "number": 1
-            },
-            {
-                "filename": "r4_2.jpg",
-                "number": 2
-            },
-            {
-                "filename": "r4_3.jpg",
-                "number": 3
-            },
-            {
-                "filename": "r4_4.jpg",
-                "number": 4
-            }
-        ],
-        "r5": [
-            {
-                "filename": "r5_1.jpg",
-                "number": 1
-            },
-            {
-                "filename": "r5_2.jpg",
-                "number": 2
-            },
-            {
-                "filename": "r5_3.jpg",
-                "number": 3
-            }
-        ],
-        "r6": [
-            {
-                "filename": "r6_1.png",
-                "number": 1
-            },
-            {
-                "filename": "r6_2.png",
-                "number": 2
-            },
-            {
-                "filename": "r6_3.png",
-                "number": 3
-            },
-            {
-                "filename": "r6_4.png",
-                "number": 4
+                "filename": "Stylized character 2024_7.png",
+                "number": 7
             }
         ]
     },
@@ -138,9 +146,9 @@
                 "number": 1
             }
         ],
-        "The chakal": [
+        "The jackal": [
             {
-                "filename": "The chakal_1.png",
+                "filename": "The jackal_1.png",
                 "number": 1
             }
         ]
@@ -162,6 +170,36 @@
                 "number": 2
             }
         ],
+        "Stylized trooper in Unreal": [
+            {
+                "filename": "Stylized trooper in Unreal_1.png",
+                "number": 1
+            },
+            {
+                "filename": "Stylized trooper in Unreal_2.png",
+                "number": 2
+            },
+            {
+                "filename": "Stylized trooper in Unreal_3.png",
+                "number": 3
+            },
+            {
+                "filename": "Stylized trooper in Unreal_4.png",
+                "number": 4
+            },
+            {
+                "filename": "Stylized trooper in Unreal_5.png",
+                "number": 5
+            },
+            {
+                "filename": "Stylized trooper in Unreal_6.png",
+                "number": 6
+            },
+            {
+                "filename": "Stylized trooper in Unreal_7.png",
+                "number": 7
+            }
+        ],
         "The Lost Shadow": [
             {
                 "filename": "The Lost Shadow_1.png",
@@ -178,28 +216,6 @@
             {
                 "filename": "The Lost Shadow_4.png",
                 "number": 4
-            }
-        ],
-        "g4": [
-            {
-                "filename": "g4_1.png",
-                "number": 1
-            },
-            {
-                "filename": "g4_2.png",
-                "number": 2
-            },
-            {
-                "filename": "g4_3.png",
-                "number": 3
-            },
-            {
-                "filename": "g4_4.png",
-                "number": 4
-            },
-            {
-                "filename": "g4_5.png",
-                "number": 5
             }
         ]
     }
