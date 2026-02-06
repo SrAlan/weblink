@@ -743,17 +743,30 @@ function formatProjectName(name) {
 // Crear botones de categoría
 function createCategoryButtons() {
   const container = document.getElementById('categoryButtons');
-  container.innerHTML = '<button class="category-btn active" data-category="all">Todos</button>';
-  
+  container.innerHTML = '';
+
+  // BOTÓN TODOS
+  const allBtn = document.createElement('button');
+  allBtn.className = 'category-btn active';
+  allBtn.dataset.category = 'all';
+  allBtn.textContent = 'Todos';
+  allBtn.onclick = function () {
+    document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
+    this.classList.add('active');
+    loadProjects('all');
+  };
+  container.appendChild(allBtn);
+
+  // BOTONES DE CATEGORÍA
   const categoriesFound = new Set();
   allProjects.forEach(p => categoriesFound.add(p.category));
-  
+
   categoriesFound.forEach(category => {
     const btn = document.createElement('button');
     btn.className = 'category-btn';
     btn.dataset.category = category;
     btn.textContent = categoryNames[category] || category;
-    btn.onclick = function() {
+    btn.onclick = function () {
       document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
       this.classList.add('active');
       loadProjects(category);
@@ -761,6 +774,7 @@ function createCategoryButtons() {
     container.appendChild(btn);
   });
 }
+
 
 // ============================================
 // FUNCIONES DE VISUALIZACIÓN
