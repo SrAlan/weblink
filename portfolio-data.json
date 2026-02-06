@@ -114,9 +114,9 @@
         ]
     },
     "print": {
-        "Custon figure": [
+        "Custom figure": [
             {
-                "filename": "Custon figure_1.png",
+                "filename": "Custom figure_1.png",
                 "number": 1
             }
         ],
@@ -216,6 +216,10 @@
             {
                 "filename": "The Lost Shadow_4.png",
                 "number": 4
+            },
+            {
+                "filename": "The Lost Shadow_5.png",
+                "number": 5
             }
         ]
     }
