@@ -1,5 +1,45 @@
 {
     "render": {
+        "Stylized Goblin": [
+            {
+                "filename": "Stylized Goblin_1.png",
+                "number": 1
+            },
+            {
+                "filename": "Stylized Goblin_2.png",
+                "number": 2
+            },
+            {
+                "filename": "Stylized Goblin_3.png",
+                "number": 3
+            }
+        ],
+        "Stylized character": [
+            {
+                "filename": "Stylized character_1.jpg",
+                "number": 1
+            },
+            {
+                "filename": "Stylized character_2.jpg",
+                "number": 2
+            },
+            {
+                "filename": "Stylized character_3.jpg",
+                "number": 3
+            },
+            {
+                "filename": "Stylized character_4.png",
+                "number": 4
+            },
+            {
+                "filename": "Stylized character_5.png",
+                "number": 5
+            },
+            {
+                "filename": "Stylized character_6.png",
+                "number": 6
+            }
+        ],
         "guerrero": [
             {
                 "filename": "guerrero_1.jpg",
@@ -11,46 +51,6 @@
             },
             {
                 "filename": "guerrero_3.jpg",
-                "number": 3
-            }
-        ],
-        "r1": [
-            {
-                "filename": "r1_1.jpg",
-                "number": 1
-            },
-            {
-                "filename": "r1_2.jpg",
-                "number": 2
-            },
-            {
-                "filename": "r1_3.jpg",
-                "number": 3
-            },
-            {
-                "filename": "r1_4.png",
-                "number": 4
-            },
-            {
-                "filename": "r1_5.png",
-                "number": 5
-            },
-            {
-                "filename": "r1_6.png",
-                "number": 6
-            }
-        ],
-        "r3": [
-            {
-                "filename": "r3_1.png",
-                "number": 1
-            },
-            {
-                "filename": "r3_2.png",
-                "number": 2
-            },
-            {
-                "filename": "r3_3.png",
                 "number": 3
             }
         ],
@@ -102,108 +102,6 @@
             {
                 "filename": "r6_4.png",
                 "number": 4
-            }
-        ]
-    },
-    "print": {
-        "Iron Maiden Figure": [
-            {
-                "filename": "Iron Maiden Figure_1.png",
-                "number": 1
-            }
-        ],
-        "p1": [
-            {
-                "filename": "p1_1.png",
-                "number": 1
-            }
-        ],
-        "p3": [
-            {
-                "filename": "p3_1.png",
-                "number": 1
-            },
-            {
-                "filename": "p3_2.png",
-                "number": 2
-            },
-            {
-                "filename": "p3_3.png",
-                "number": 3
-            }
-        ],
-        "p4": [
-            {
-                "filename": "p4_1.png",
-                "number": 1
-            }
-        ],
-        "p5": [
-            {
-                "filename": "p5_1.png",
-                "number": 1
-            }
-        ]
-    },
-    "game": {
-        "g1": [
-            {
-                "filename": "g1_1.png",
-                "number": 1
-            },
-            {
-                "filename": "g1_2.png",
-                "number": 2
-            }
-        ],
-        "g2": [
-            {
-                "filename": "g2_1.png",
-                "number": 1
-            },
-            {
-                "filename": "g2_2.png",
-                "number": 2
-            },
-            {
-                "filename": "g2_3.png",
-                "number": 3
-            },
-            {
-                "filename": "g2_4.png",
-                "number": 4
-            }
-        ],
-        "g3": [
-            {
-                "filename": "g3_1.png",
-                "number": 1
-            },
-            {
-                "filename": "g3_2.png",
-                "number": 2
-            }
-        ],
-        "g4": [
-            {
-                "filename": "g4_1.png",
-                "number": 1
-            },
-            {
-                "filename": "g4_2.png",
-                "number": 2
-            },
-            {
-                "filename": "g4_3.png",
-                "number": 3
-            },
-            {
-                "filename": "g4_4.png",
-                "number": 4
-            },
-            {
-                "filename": "g4_5.png",
-                "number": 5
             }
         ]
     }
