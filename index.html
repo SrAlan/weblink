@@ -575,6 +575,76 @@ color: var(--muted);
     text-align: center;
   }
 }
+/* ABOUT */
+.about-grid{
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr);
+  gap: 32px;
+  align-items: center;
+}
+
+.about-photo{
+  width: 220px;
+  flex-shrink: 0;
+}
+
+.about-photo img{
+  width: 220px;
+  height: 220px;
+  border-radius: 12px;
+  object-fit: cover;
+  display: block;
+}
+
+.about-text{
+  min-width: 0; /* 🔑 evita que el texto se desborde */
+}
+
+.about-text h3{
+  margin: 0 0 8px;
+  font-size: 18px;
+}
+
+.about-text p{
+  margin: 0 0 16px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.6;
+}
+.about-socials{
+  margin-top: 28px;
+  display: flex;
+  justify-content: left;
+  gap: 10px;
+}
+
+.about-socials a{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 60px;
+  border-radius: 2px;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.about-socials img{
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  filter: brightness(0) saturate(100%)
+          invert(55%) sepia(90%)
+          saturate(400%) hue-rotate(90deg);
+}
+
+.about-socials a:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0,0,0,.12);
+  filter: brightness(0) saturate(200%)
+          invert(55%) sepia(90%)
+          saturate(400%) hue-rotate(90deg);
+}
+
 
 </style>
 </head>
@@ -760,6 +830,49 @@ Coordinamos una llamada corta para definir estilo, alcance y tiempos.
     </div>
   </div>
 </section>
+
+<section id="sobre-mi">
+  <div class="container">
+    <div class="card about">
+
+      <div class="about-grid">
+        <!-- Foto -->
+        <div class="about-photo">
+          <img src="images/image_yo.jpg" alt="Alan Ledesma">
+        </div>
+
+        <!-- Texto -->
+        <div class="about-text">
+          <h3>Alan Ledesma</h3>
+          <p>
+            Modelador 3D enfocado en personajes y assets para videojuegos y tiempo real.
+            Trabajo priorizando calidad visual, optimización y una comunicación clara
+            durante todo el proceso.
+          </p>
+
+          <div class="about-socials">
+            <a href="https://www.instagram.com/sr_alan7/?hl=es" target="_blank" rel="noopener">
+              <img src="images/logos/instagram_logo.png" alt="Instagram">
+            </a>
+
+            <a href="https://www.linkedin.com/in/alan-ledesma-8517b7171/" target="_blank" rel="noopener">
+              <img src="images/logos/linkeding_logo.png" alt="LinkedIn">
+            </a>
+
+            <a href="https://www.artstation.com/sralan?utm_source=ig&utm_medium=social&utm_content=link_in_bio" target="_blank" rel="noopener">
+              <img src="images/logos/artstation_logo.png" alt="ArtStation">
+            </a>
+        </div>
+
+        </div>
+      </div>
+
+      
+
+    </div>
+  </div>
+</section>
+
 
 
 <footer>
