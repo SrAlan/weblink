@@ -510,6 +510,71 @@ color: var(--muted);
 .testimonial-link:active {
   transform: translateY(-2px);
 }
+/* CONTACTO */
+.contact-actions{
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 24px;
+  flex-wrap: wrap;
+}
+
+.btn-primary{
+  background: var(--green);
+  color: #fff;
+  padding: 14px 22px;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+.btn-primary:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0,0,0,.12);
+}
+
+.btn-secondary{
+  border: 2px solid var(--border);
+  padding: 14px 22px;
+  border-radius: 8px;
+  font-weight: 600;
+  color: var(--text);
+  transition: all .2s ease;
+}
+
+.btn-secondary:hover{
+  border-color: var(--green);
+  color: var(--green);
+}
+
+/* Redes */
+.contact-socials{
+  margin-top: 28px;
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  flex-wrap: wrap;
+  font-size: 14px;
+}
+
+.contact-socials a{
+  color: var(--muted);
+  font-weight: 600;
+  transition: color .2s ease;
+}
+
+.contact-socials a:hover{
+  color: var(--green);
+}
+
+/* Mobile */
+@media(max-width:480px){
+  .btn-primary,
+  .btn-secondary{
+    width: 100%;
+    text-align: center;
+  }
+}
 
 </style>
 </head>
@@ -610,10 +675,17 @@ Coordinamos una llamada corta para definir estilo, alcance y tiempos.
   </strong>
 </a>
 
-<div class="card testimonial">
-<p>"Assets listos para Unity sin ajustes extra."</p>
-<strong>Indie developer</strong>
-</div>
+<a 
+  href="https://aumenta.co/"
+  target="_blank"
+  rel="noopener"
+  class="card testimonial testimonial-link"
+>
+  <p>"Texto en progreso"</p>
+  <strong>
+    Aldo Orue / CEO de Aumenta.py
+  </strong>
+</a>
 <div class="card testimonial">
 <p>"Muy prolijo y confiable con los tiempos."</p>
 <strong>Estudio pequeño</strong>
@@ -653,16 +725,37 @@ Coordinamos una llamada corta para definir estilo, alcance y tiempos.
 </div>
 
 <section id="contacto">
-<div class="container">
-<div class="booking">
-<h2>Agendá una videollamada</h2>
-<p>
-Definimos tu proyecto, tiempos y presupuesto sin compromiso.
-</p>
-<a href="https://calendly.com/TU_LINK">Agendar ahora</a>
-</div>
-</div>
+  <div class="container">
+    <div class="booking">
+      <h2>Hablemos de tu proyecto</h2>
+      <p>
+        Definimos tu proyecto, tiempos y presupuesto sin compromiso.
+      </p>
+
+      <!-- Acciones principales -->
+      <div class="contact-actions">
+        <a 
+          href="https://calendly.com/asledesma0130/30min"
+          class="btn-primary"
+          target="_blank"
+          rel="noopener"
+        >
+          Agendar videollamada
+        </a>
+
+        <a 
+          href="https://mail.google.com/mail/?view=cm&fs=1&to=asledesma0130@gmail.com"
+          class="btn-primary"
+        >
+          Enviar correo
+        </a>
+      </div>
+
+      
+    </div>
+  </div>
 </section>
+
 
 <footer>
 © 2026 · Alan Ledesma · Modelador 3D
